@@ -1,0 +1,37 @@
+package com.crmindz.assignments.Operators;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class NewThread {
+	
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+        String month = scan.next();
+        String day = scan.next();
+        String year = scan.next();
+        
+        System.out.println(getDay(day, month, year));
+}
+	public static String getDay(String day, String month, String year) {
+        Date date = (new GregorianCalendar(Integer.parseInt(year),Integer.parseInt(month),Integer.parseInt(day))).getTime();
+        SimpleDateFormat f = new SimpleDateFormat("EEEE");
+        String d = f.format(date);
+        
+        return d;
+    }}
+		
+		
+		
+	
+	
+
+
+
+
+
+	
+	

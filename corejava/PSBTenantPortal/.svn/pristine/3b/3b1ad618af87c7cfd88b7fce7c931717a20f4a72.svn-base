@@ -1,0 +1,26 @@
+package com.crmindz.bcjMay2017.PsbBuildingInfo.data;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.crmindz.bcjMay2017.PsbBuildingInfo.model.BuildingDetails;
+import com.crmindz.bcjMay2017.PsbBuildingInfo.model.TenantDetails;
+
+public class TenantMockData {
+	public Map<String, ArrayList<TenantDetails>> map = new HashMap<String, ArrayList<TenantDetails>>();
+    BuildingDetails bd = new BuildingDetails();
+	public void createTenantInfo(ArrayList<TenantDetails> arrayList) {
+		map.put(bd.getBuildingName(), arrayList);
+
+	}
+
+	/**
+	 * @return
+	 */
+	public Map<String,ArrayList<TenantDetails> > getTenantDetails() {
+
+		return map;
+
+	}
+
+}

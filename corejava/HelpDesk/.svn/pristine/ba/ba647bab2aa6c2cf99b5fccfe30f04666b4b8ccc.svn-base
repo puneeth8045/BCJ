@@ -1,0 +1,57 @@
+package com.crmindz.HelpDesk.Service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.crmindz.HelpDesk.DAO.Dao;
+import com.crmindz.HelpDesk.Model.Registration;
+
+/**
+ * @author Puneeth
+ *This Class implements methods to generate business logic wherever required.
+ */
+@Service
+public class RegistrationService {
+	
+	@Autowired
+	Dao RegistrationDao;
+	
+	/**
+	 * @param register
+	 * This method receives user information to register.
+	 */
+	public  void register(Registration register) {
+		RegistrationDao.register(register);
+		
+	}
+	/**
+	 * @return String
+	 * This method retrieves the Strings of states.
+	 */
+	public String getStates() {
+		List<Map<String,String>> states = RegistrationDao.getStates();
+		String statesDropDown = "";
+		for(Map<String,String> state:states) {
+			statesDropDown +="<option value='"+ state.get("code") +"'>"+ state.get("name") +"</option>";
+		}
+		return statesDropDown;
+		
+	}
+	/**
+	 * @return String
+	 * This method retrieves the Strings of usertypes.
+	 */
+	public String getType() {
+		List<Map<String,String>> type = RegistrationDao.getUsertype();
+		String usertype= "";
+		for(Map<String,String> user:type) {
+			usertype +="<option value='"+user.get("value")+"'>"+user.get("type")+"</option>";
+		}
+		return usertype;
+	}
+
+
+}

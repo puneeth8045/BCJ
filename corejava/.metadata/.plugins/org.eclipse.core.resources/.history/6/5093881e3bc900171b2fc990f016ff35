@@ -1,0 +1,26 @@
+package com.crmindz.assignments.Operators;
+
+public class NewThread {
+	
+	public static void main(String[] args) {
+		String str = "Java is Java Again Java Again";
+		String[] str1 = str.split(" ");
+		String reverse = " ";
+		for(int i = str1.length-1;i<str1.length;i--) {
+			 reverse += i + " ";
+		}
+		System.out.println(reverse);
+		}
+	}
+		
+		
+		
+	
+	
+
+
+
+
+
+	
+	

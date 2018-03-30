@@ -1,0 +1,20 @@
+package com.crmindz.assignments.Operators;
+
+public class FirstRepeat {
+	
+	public void firstRep(int[] a) {
+		int[] count = new int[256];
+		for(int i=0;i<a.length;i++) {
+			count[a[i]]++;
+		}
+		System.out.println(count);
+	}
+
+	
+	public static void main(String[] args) {
+		FirstRepeat f = new FirstRepeat();
+		f.firstRep(new int[] {1,2,3,4,4,3,2,1});
+
+	}
+
+}

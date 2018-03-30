@@ -1,0 +1,36 @@
+package com.crmindz.bcjMay2017.PSBinfo.model;
+
+import java.util.List;
+
+public class TenantDetails {
+	private String tenantName;
+	private Address address;
+	private List<ContactDetails> contactDetails;
+	
+	public String getTenantName() {
+		return tenantName;
+	}
+	public void setTenantName(String tenantName) {
+		this.tenantName = tenantName;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public List<ContactDetails> getContactDetails() {
+		return contactDetails;
+	}
+	public void setContactDetails(List<ContactDetails> contactDetails) {
+		this.contactDetails = contactDetails;
+	}
+	/*@Override
+	public String toString() {
+		return "TenantDetails [tenantName=" + tenantName + ", address=" + address + ", contactDetails=" + contactDetails
+				+ "]";
+	}*/
+	
+	
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="1" auto-publish-time="15" hostname="localhost" id="Oracle WebLogic Server 12c R2 (12.2.1.2) [domain1]" name="Oracle WebLogic Server 12c R2 (12.2.1.2) [domain1]" runtime-id="Oracle WebLogic Server 12c R2 (12.2.1.2)" server-type="weblogic.server" server-type-id="weblogic.server" start-timeout="480" stop-timeout="240" timestamp="2" weblogic_domain_path="C:\BootCampJava\Tools\OracleWeblogic\user_projects\domains\domain1" weblogic_host_name="localhost" weblogic_is_remote="false" weblogic_port="7001" weblogic_use_bootprop="true" weblogic_use_config_xml="true">
+    <list key="modules"/>
+  </server>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="4">
+    <list key="modules" value0="HelpDeskSoap1::org.eclipse.jst.jee.server:HelpDeskSoap1::jst.web::3.0"/>
+  </server>
+</servers>

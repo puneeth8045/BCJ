@@ -1,0 +1,17 @@
+package com.crmindz.assignments.Operators;
+
+import java.util.LinkedList;
+
+public class FirstRepeatArray {
+
+	public static void main(String[] args) {
+		LinkedList<Integer> a = new LinkedList<>();
+		a.addFirst(1);
+		a.add(2);
+		a.addLast(3);
+		int b = a.peek();
+		System.out.println(a);
+		System.out.println(b);
+	}
+
+}

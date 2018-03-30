@@ -1,0 +1,51 @@
+package com.crmindz.bcjMay2017.PsbBuildingInfo.service;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import com.crmindz.bcjMay2017.PsbBuildingInfo.DAO.PSBDAO;
+import com.crmindz.bcjMay2017.PsbBuildingInfo.model.TenantDetails;
+
+
+public class PSBService {
+	
+PSBDAO psbdao = new PSBDAO();
+	
+	public void createTenant(ArrayList<TenantDetails> arraylist) {
+
+		psbdao.createTenant(arraylist);
+	}
+
+	/**
+	 * @param addressLine1
+	 * @return
+	 */
+	public ArrayList<TenantDetails> displayTenantInfo(String buildingName) {
+		Map<String, ArrayList<TenantDetails>> map2 = psbdao.getTenantinfo();
+		ArrayList<TenantDetails> list = new ArrayList<>();
+        TenantDetails td = new TenantDetails();
+		for (Map.Entry<String, ArrayList<TenantDetails>> m : map2.entrySet()) {
+			
+			if (buildingName.equals(m.getKey())) {
+				ArrayList<TenantDetails> al1 = m.getValue();
+				java.util.Iterator<TenantDetails> iterator1 =al1.iterator();
+				while(iterator1.hasNext()){
+					System.out.println("*********************************************");
+					System.out.println("Tenant name: " + td.getTenantName());
+					System.out.println("Primary contact name: " + td.getContactDetails().get(0).getContactName());
+					System.out.println("Phone number :" + td.getContactDetails().get(0).getPhoneNo());
+					System.out.println("email:" + td.getContactDetails().get(0).getEmail());
+					System.out.println("Secondary contact name: " + td.getContactDetails().get(1).getContactName());
+					System.out.println("Phone number: " + td.getContactDetails().get(1).getPhoneNo());
+					System.out.println("email: " + td.getContactDetails().get(1).getEmail());
+					System.out.println("*********************************************");
+				}
+			}
+		}
+		return list;
+
+	}
+
+}

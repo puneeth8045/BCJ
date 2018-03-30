@@ -1,0 +1,73 @@
+package com.crmindz.HelpDesk;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.crmindz.HelpDesk.DAO.Dao;
+import com.crmindz.HelpDesk.Model.TicketCreation;
+import com.crmindz.HelpDesk.Service.TicketCreationService;
+
+/**
+ * @author Puneeth 
+ * This class tests the methods in the TicketCreationService
+ *         class.
+ */
+@RunWith(MockitoJUnitRunner.class)
+public class TicketCreationServiceTest {
+
+	@Mock
+	Dao TicketDao;
+
+	@InjectMocks
+	private TicketCreationService Service;
+
+	/**
+	 * This method tests the createTicket method in the TicketCreationService Class.
+	 */
+	@Test
+	public void createTicketTest() {
+		Service.createTicket(new TicketCreation(), "username");
+		Mockito.verify(TicketDao, times(1)).createTicket(Mockito.any(TicketCreation.class), Mockito.anyString());
+	}
+
+	/**
+	 * This method tests the getCategory method in the TicketCreationService Class.
+	 */
+	@Test
+	public void getCategoryTest() {
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("category", "Placement");
+		list.add(map);
+		when(TicketDao.getCategory()).thenReturn(list);
+		String category = "<option value='" + "Placement" + "'>" + "Placement" + "</option>";
+		assertEquals(category, Service.getCategory());
+	}
+
+	/**
+	 * This method tests the getSubCategory method in the TicketCreationService
+	 * Class.
+	 */
+	@Test
+	public void getSubCategoryTest() {
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("subcategory", "Skype");
+		list.add(map);
+		when(TicketDao.getSubCategory(Mockito.anyString())).thenReturn(list);
+		assertEquals(list, Service.getSubCategory(Mockito.anyString()));
+	}
+}

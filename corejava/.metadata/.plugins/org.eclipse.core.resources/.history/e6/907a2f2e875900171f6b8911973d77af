@@ -1,0 +1,14 @@
+package com.crmindz.assignments.DataTypes.Array.lab5;
+
+public class JaggedArray {
+
+	public static void main(String[] args) {
+		
+	String arr[][]={{"Student Name","Tutorial1","Tutorial2","Tutorial3"},{"Tony ","JAVA","C","C++"},{"Thomas","JAVA","UNIX"," "},{"Dinil","Linux","Oracle"," "},{"Delvin", "RDBMS" ,"C#" ,"ORACLE"}};
+	for(int i=0;i<3;i++){  
+		 for(int j=0;j<3;j++){  
+		   System.out.println(arr[i][j]+" ");  
+		 }  
+	}
+
+	}}

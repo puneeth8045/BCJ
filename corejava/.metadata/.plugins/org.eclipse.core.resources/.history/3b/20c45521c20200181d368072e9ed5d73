@@ -1,0 +1,54 @@
+package com.crmindz.assignments.Operators;
+
+import java.util.Scanner;
+
+public class NewThread {
+	
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		int a = s.nextInt();
+		int b = 0;
+		
+		if(a>=100&&a<=700) {
+			if(b==a%2) {
+				int temp = a;
+				int count = 1;
+				
+				while (temp>2 && b == temp%2) {
+					temp = temp/2;
+					if(b == temp%2) {
+						count++;
+					}else {
+						for(int i =1; i<=count;i++) {
+							sb.append("*2");
+						}
+						System.out.println(temp +""+ sb);
+					}
+					
+					
+				}	
+			}else {
+				System.out.println(a);
+			}
+			
+			
+		}
+		else {
+			System.out.println("Print numbers between 100 and 700");
+		}
+		}
+    }
+		
+		
+		
+	
+	
+
+
+
+
+
+	
+	

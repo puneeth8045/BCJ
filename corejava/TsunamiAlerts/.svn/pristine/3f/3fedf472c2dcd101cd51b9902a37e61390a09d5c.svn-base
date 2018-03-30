@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>GlobalTsunamiInfo</title>
+  <h1 align="center">Tsunami Alerts</h1>
+</head>
+<body>
+  <form method="post" action="TsunamiAlertServlet">
+  <div align="center">
+  <label>Enter Country Name: </label><input type="text" name="countryname" placeholder="Enter country name" size="15px" required><br>
+    <label>Click Here To Display Data</label><br>
+  </div>
+  
+  <div align="center">
+    <input type="submit" value="Submit">
+  </div>
+  
+  </form>
+
+</body>
+</html>

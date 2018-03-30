@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="war" name="FlightBooking">
+	<property environment="env" />
+	<property name="web.dir" value="war" />
+	<property name="build.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.8" />
+	<property name="source" value="1.8" />
+	<property name="name" value="FlightBooking" />
+	<path id="Web App Libraries.libraryclasspath">
+		<pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/servlet-api.jar" />
+	</path>
+	<path id="EAR Libraries.libraryclasspath" />
+	<path id="FlightBooking.classpath">
+		<pathelement location="build/classes" />
+		<path refid="Web App Libraries.libraryclasspath" />
+		<path refid="EAR Libraries.libraryclasspath" />
+	</path>
+	<target name="init">
+		<mkdir dir="build/classes" />
+		<copy includeemptydirs="false" todir="build/classes">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="build/classes" />
+	</target>
+	<target depends="clean" name="cleanall" />
+	<target depends="build-subprojects,build-project" name="build" />
+	<target name="build-subprojects" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="FlightBooking.classpath" />
+		</javac>
+	</target>
+	
+	
+	<target name="war" description="Bundles the application as a WAR file" depends="clean, build">
+	    <mkdir dir="WebContent/WEB-INF/classes"/>
+	     
+	    <copy includeemptydirs="false" todir="WebContent/WEB-INF/classes">
+	            <fileset dir="build/classes">
+	            <include name="**/*.class"/>
+	            </fileset>
+	    </copy>
+	     
+	    <war destfile="FlightBooking.war"
+	        basedir="WebContent"
+	        needxmlfile="false">
+	    </war>
+		
+		<copy todir="C:\BootCampJava\Tools\apache-tomcat-9.0.0.M26\webapps" preservelastmodified="true">
+		         <fileset dir=".">
+		            <include name="*.war"/>
+		         </fileset>
+		      </copy>
+		<antcall target ="start"></antcall>
+	</target>
+	<target name="start" description="to start server">
+				<exec executable="C:\BootCampJava\Tools\apache-tomcat-9.0.0.M26\bin\startup.bat"/>
+		<exec executable = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe">
+		<arg line = "http://localhost:8080/FlightBooking"/></exec>
+			</target>
+	
+		
+	<target name="stop" description="to start server">
+					<exec executable="C:\BootCampJava\Tools\apache-tomcat-9.0.0.M26\bin\shutdown.bat"/>
+			
+				</target>
+
+	</project>
+	
+
+	
+		
+	
+	

@@ -1,0 +1,92 @@
+package com.crmindz.HelpDesk;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.crmindz.helpdesk.dao.HelpDeskDao;
+import com.crmindz.helpdesk.domain.LoginCredentails;
+import com.crmindz.helpdesk.domain.TicketCreation;
+import com.crmindz.helpdesk.service.LoginService;
+
+/**
+ * @author Puneeth This class tests the methods in the LoginService class.
+ */
+@RunWith(MockitoJUnitRunner.class)
+public class LoginServiceTest {
+
+	@Mock
+	private HelpDeskDao LoginDao;
+
+	@InjectMocks
+	private LoginService Service;
+
+	/**
+	 * This method tests the validateLogin method in the LoginService Class when
+	 * username is Incorrect.
+	 */
+	@Test
+	public void loginTestWhenUsernameIsIncorrect() {
+		List<LoginCredentails> lc = new ArrayList<LoginCredentails>();
+		Mockito.when(LoginDao.getLoginDetails(Mockito.any(LoginCredentails.class))).thenReturn(lc);
+		assertEquals("Username is incorrect!!!!", Service.validateUser(new LoginCredentails()));
+
+	}
+
+	/**
+	 * This method tests the validateLogin method in the LoginService Class.
+	 */
+	@Test
+	public void loginTestWhenLoginSuccess() {
+		List<LoginCredentails> lc = new ArrayList<LoginCredentails>();
+		LoginCredentails lc1 = new LoginCredentails();
+		lc1.setPassword("puneeth");
+		lc1.setUsertype("S");
+		lc.add(lc1);
+		Mockito.when(LoginDao.getLoginDetails(Mockito.any(LoginCredentails.class))).thenReturn(lc);
+		LoginCredentails lc2 = new LoginCredentails();
+		lc2.setPassword("puneeth");
+		assertEquals("S", Service.validateUser(lc2));
+
+	}
+
+	/**
+	 * This method tests the validateLogin method in the LoginService Class when
+	 * password is Incorrect.
+	 */
+	@Test
+	public void loginTestWhenLoginFailed() {
+		List<LoginCredentails> lc = new ArrayList<LoginCredentails>();
+		LoginCredentails lc1 = new LoginCredentails();
+		lc1.setPassword("puneeth");
+		lc1.setUsertype("S");
+		lc.add(lc1);
+		Mockito.when(LoginDao.getLoginDetails(Mockito.any(LoginCredentails.class))).thenReturn(lc);
+		LoginCredentails lc2 = new LoginCredentails();
+		lc2.setPassword("Puneeth");
+		assertEquals("Password is incorrect!!!", Service.validateUser(lc2));
+	}
+
+	/**
+	 * This method tests the gridView method in the LoginService Class.
+	 */
+	@Test
+	public void gridViewTest() {
+		List<TicketCreation> lc = new ArrayList<TicketCreation>();
+		TicketCreation tc = new TicketCreation();
+		tc.setTicketId(1234);
+		lc.add(tc);
+		when(LoginDao.getGrid(Mockito.anyString())).thenReturn(lc);
+		assertEquals(lc, Service.gridView(Mockito.anyString()));
+	}
+
+}

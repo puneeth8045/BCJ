@@ -1,0 +1,10 @@
+package com.crmindz.assignments.FlowControl.lab8;
+
+public class AsterisksSquare {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

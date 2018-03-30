@@ -1,0 +1,125 @@
+package com.crmindz.bcjMay2017.PSBinfo.controller;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.crmindz.bcjMay2017.PSBinfo.model.Address;
+import com.crmindz.bcjMay2017.PSBinfo.model.ContactDetails;
+import com.crmindz.bcjMay2017.PSBinfo.model.TenantDetails;
+import com.crmindz.bcjMay2017.PSBinfo.service.PSBService;
+
+/**
+ * @author Bootcamp User 005
+ *
+ */
+public class PSBParkDemo {
+	private Scanner sc;
+	PSBService psbservice = new PSBService();
+
+	public static void main(String[] args) {
+		PSBParkDemo psbDemo = new PSBParkDemo();
+		psbDemo.mockTenantData();
+		psbDemo.displayPSBTenantInfo();
+
+	}
+
+	/**
+	 * 
+	 */
+	public void mockTenantData() {
+		sc = new Scanner(System.in);
+
+		for (int i = 1; i <= 3; i++) {
+			TenantDetails td = new TenantDetails();
+			Address a = new Address();
+			ContactDetails cd = new ContactDetails();
+			ContactDetails cd1 = new ContactDetails();
+
+			ArrayList<ContactDetails> al = new ArrayList<ContactDetails>();
+
+			System.out.println(i + ". " + "Enter the tenant name:");
+			String tenantName = sc.nextLine();
+			td.setTenantName(tenantName);
+
+			System.out.println("Enter the addressLine1:");
+			String addressLine1 = sc.nextLine();
+			a.setAddressline1(addressLine1);
+
+			System.out.println("Enter the addressLine2:");
+			String addressLine2 = sc.nextLine();
+			a.setAddressline2(addressLine2);
+
+			System.out.println("Enter the city:");
+			String city = sc.nextLine();
+			a.setCity(city);
+
+			System.out.println("Enter the state:");
+			String state = sc.nextLine();
+			a.setState(state);
+
+			System.out.println("Enter the Zipcode:");
+			String zipCode = sc.nextLine();
+			a.setZipcode(zipCode);
+
+			System.out.println("Enter the Primary Contact Details :" + "\n Enter the Contact name: ");
+			String contactname = sc.nextLine();
+			cd.setContactName(contactname);
+
+			System.out.println("Enter the phone number:");
+			String phoneNo = sc.nextLine();
+			cd.setPhoneNo(phoneNo);
+
+			System.out.println("Enter the email: ");
+			String email = sc.nextLine();
+			cd.setEmail(email);
+
+			System.out.println("Enter the Secondary Contact Details :" + "\n Enter the Contact name: ");
+			String contactname1 = sc.nextLine();
+			cd1.setContactName(contactname1);
+
+			System.out.println("Enter the phone number:");
+			String phoneNo1 = sc.nextLine();
+			cd1.setPhoneNo(phoneNo1);
+
+			System.out.println("Enter the email: ");
+			String email1 = sc.nextLine();
+			cd1.setEmail(email1);
+
+			System.out.println("\n***********************************************************************");
+			al.add(cd);
+			al.add(cd1);
+
+			td.setAddress(a);
+			td.setContactDetails(al);
+
+			psbservice.createTenant(td);
+
+		}
+
+	}
+
+	/**
+	 * 
+	 */
+	public void displayPSBTenantInfo() {
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Enter the address to be retrieved" + "\nEnter the addressline1: ");
+		String addressLine1 = sc1.nextLine();
+		psbservice.displayTenantInfo(addressLine1);
+		sc1.close();
+		ArrayList<TenantDetails> list = psbservice.displayTenantInfo(addressLine1);
+		for (TenantDetails td : list) {
+			System.out.println("*********************************************");
+			System.out.println("Tenant name: " + td.getTenantName());
+			System.out.println("Primary contact name: " + td.getContactDetails().get(0).getContactName());
+			System.out.println("Phone number :" + td.getContactDetails().get(0).getPhoneNo());
+			System.out.println("email:" + td.getContactDetails().get(0).getEmail());
+			System.out.println("Secondary contact name: " + td.getContactDetails().get(1).getContactName());
+			System.out.println("Phone number: " + td.getContactDetails().get(1).getPhoneNo());
+			System.out.println("email: " + td.getContactDetails().get(1).getEmail());
+			System.out.println("*********************************************");
+		}
+
+	}
+
+}

@@ -1,0 +1,55 @@
+package com.crmindz.bcjMay2017.Model;
+
+
+
+public class Registration {
+
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phnNo;
+	private Address address;
+	private LoginCredentails login;
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhnNo() {
+		return phnNo;
+	}
+	public void setPhnNo(String phnNo) {
+		this.phnNo = phnNo;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public LoginCredentails getLogin() {
+		return login;
+	}
+	public void setLogin(LoginCredentails login) {
+		this.login = login;
+	}
+	
+	
+	
+	
+	
+	
+}

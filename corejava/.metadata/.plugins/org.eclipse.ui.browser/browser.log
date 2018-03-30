@@ -1,0 +1,48 @@
+
+Jul 06, 2017 24:08:49.72 NEW SESSION
+Jul 06, 2017 24:08:49.72 [9060:16944:0706/000849.710:ERROR:rankings.cc(797)] Inconsistent LRU.
+Jul 06, 2017 24:08:49.72 [9060:16944:0706/000849.710:ERROR:backend_impl.cc(1021)] Critical error found -8
+Jul 06, 2017 24:08:49.72 [9060:16944:0706/000849.715:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
+Jul 06, 2017 24:08:49.72 [9060:16944:0706/000849.715:ERROR:cache_util.cc(134)] Unable to move cache folder C:\Users\Bootcamp User 005\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\Bootcamp User 005\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+Jul 06, 2017 24:08:49.77 [9060:16944:0706/000849.775:ERROR:backend_impl.cc(2002)] Corrupt Index file
+Jul 06, 2017 24:08:57.12 [9060:3208:0706/000857.127:ERROR:shader_disk_cache.cc(237)] Failed to create shader cache entry: -2
+Jul 06, 2017 24:08:57.13 [9060:3208:0706/000857.137:ERROR:shader_disk_cache.cc(237)] Failed to create shader cache entry: -2
+Jul 06, 2017 24:08:58.43 [9060:16944:0706/000858.436:ERROR:backend_impl.cc(2002)] Corrupt Index file
+Jul 06, 2017 24:08:59.50 [9060:3208:0706/000859.502:ERROR:shader_disk_cache.cc(237)] Failed to create shader cache entry: -2
+Jul 06, 2017 24:08:59.55 [9060:3208:0706/000859.554:ERROR:shader_disk_cache.cc(237)] Failed to create shader cache entry: -2
+Jul 06, 2017 24:09:02.67 [9060:3208:0706/000902.678:ERROR:shader_disk_cache.cc(237)] Failed to create shader cache entry: -2
+Jul 06, 2017 24:09:05.81 [9060:3208:0706/000905.815:ERROR:shader_disk_cache.cc(237)] Failed to create shader cache entry: -2
+Jul 06, 2017 24:10:30.75 [1516:16128:0706/001030.754:ERROR:backend_impl.cc(2002)] Corrupt Index file
+Jul 06, 2017 24:16:19.57 [1516:10140:0706/001619.571:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 06, 2017 01:45:43.18 [1516:10140:0706/014543.151:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 06, 2017 08:59:00.75 [1516:10140:0706/085900.752:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+Jul 06, 2017 10:55:18.71 [1516:10140:0706/105518.685:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 06, 2017 16:51:08.97 [1516:10140:0706/165108.926:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 06, 2017 16:51:56.72 [1516:10140:0706/165156.690:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 06, 2017 16:54:19.76 [1516:10140:0706/165419.757:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 06, 2017 17:35:04.25 [1516:10140:0706/173504.253:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+
+Jul 10, 2017 23:51:50.85 NEW SESSION
+Jul 10, 2017 23:51:50.85 [11772:11272:0710/235150.785:ERROR:backend_impl.cc(1021)] Critical error found -8
+Jul 10, 2017 23:51:50.86 [11772:11272:0710/235150.803:ERROR:backend_impl.cc(1021)] Critical error found -8
+Jul 10, 2017 23:51:50.87 [11772:11272:0710/235150.803:ERROR:entry_impl.cc(1037)] No file for c10344c6
+Jul 10, 2017 23:51:51.86 [11772:11272:0710/235151.862:ERROR:backend_impl.cc(1021)] Critical error found -8
+Jul 10, 2017 23:58:40.94 [11772:5684:0710/235840.947:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 10, 2017 23:59:48.50 [11772:5684:0710/235948.494:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+
+Jul 11, 2017 16:16:37.00 NEW SESSION
+Jul 11, 2017 16:16:37.00 [11132:4672:0711/161636.059:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 11, 2017 21:30:45.18 [7556:12184:0711/213045.180:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 11, 2017 21:38:49.55 [7556:12184:0711/213849.549:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 11, 2017 21:51:30.06 [7556:12184:0711/215130.054:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 11, 2017 22:04:30.16 [7556:12184:0711/220430.161:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 11, 2017 22:55:38.70 [7556:12184:0711/225538.697:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 24:15:19.08 [7556:12184:0712/001519.055:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 24:29:50.10 [7556:12184:0712/002950.101:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 01:08:27.70 [7556:12184:0712/010827.696:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 01:33:55.67 [7556:12184:0712/013355.669:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 07:18:29.95 [7556:12184:0712/071829.953:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+Jul 12, 2017 10:44:36.02 [7556:12184:0712/104436.012:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 11:57:59.20 [7556:12184:0712/115759.189:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)
+Jul 12, 2017 16:43:34.04 [7556:12184:0712/164334.042:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+Jul 12, 2017 16:53:18.26 [7556:12184:0712/165318.251:ERROR:CONSOLE(6)] "Uncaught ReferenceError: gbar is not defined", source: https://clients5.google.com/pagead/drt/dn/ (6)

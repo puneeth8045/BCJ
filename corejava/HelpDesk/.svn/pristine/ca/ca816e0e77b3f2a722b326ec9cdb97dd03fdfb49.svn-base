@@ -1,0 +1,59 @@
+package com.crmindz.HelpDesk.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.crmindz.HelpDesk.DAO.Dao;
+import com.crmindz.HelpDesk.Model.LoginCredentails;
+import com.crmindz.HelpDesk.Model.TicketCreation;
+
+
+
+/**
+ * @author Puneeth
+ *This Class implements methods to generate business logic wherever required.
+ */
+@Service
+public class LoginService {
+	String Student;
+	String Employee;
+	@Autowired
+	Dao LoginDao;
+
+	/**
+	 * @param login
+	 * @return String
+	 * This method takes user entity class and sends its to DAO class for validation.
+	 */
+	public String validateUser(LoginCredentails login) {
+
+		List<LoginCredentails> lc = LoginDao.getLoginDetails(login);
+		if (lc.isEmpty()) {
+			return "Username is incorrect!!!!";
+		}
+
+		else if (login.getPassword().equals(lc.get(0).getPassword())) {
+			return lc.get(0).getUsertype();
+		}
+
+		else {
+			return "Password is incorrect!!!";
+		}
+
+	}
+
+	/**
+	 * @param username
+	 * @return List
+	 * This method returns the list used in jqGrid.
+	 */
+	public List<TicketCreation> gridView(String username) {
+		List<TicketCreation> lc = LoginDao.getGrid(username);
+
+		return lc;
+
+	}
+
+}

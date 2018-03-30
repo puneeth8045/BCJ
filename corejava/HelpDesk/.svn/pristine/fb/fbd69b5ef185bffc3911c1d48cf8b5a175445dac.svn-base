@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/crmindz/HelpDesk/DAO/DaoImpl.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/CreateTicket.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/EmployeeView.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Login.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Registration.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/StudentView.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/TicketManagement.jsp=UTF-8
+encoding//src/main/webapp/index.jsp=UTF-8

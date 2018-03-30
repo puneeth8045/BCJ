@@ -1,0 +1,50 @@
+package com.crmindz.bcjMay2017.InventoryManagement.controller;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import com.crmindz.bcjMay2017.InventoryManagement.service.InventoryManagementService;
+
+
+public class Demo {
+	private Scanner sc;
+	InventoryManagementService ims = new InventoryManagementService();
+	public void saveInventory(){
+		 sc = new Scanner(System.in);
+		System.out.println("Enter the String: ");
+		String Input = sc.nextLine();
+		ims.saveInventoryInfo(Input);
+		
+	}
+	public void displayInventory(){
+		Map<String,Integer> map2 = ims.displayInventoryInfo();
+       for (Map.Entry<String, Integer> m : map2.entrySet()){
+    	   System.out.println("***********");
+    	   System.out.println("The inventory Details of "+m.getKey()+" are:");
+           System.out.println(m.getKey()+"->"+m.getValue());
+           System.out.println("***********");
+			
+			}
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Enter the details to retrieve the inventory:");
+		String a = sc1.nextLine();
+		for (Map.Entry<String, Integer> m : map2.entrySet()){
+			
+			if(m.getKey().equals(a)){
+				System.out.println(m.getValue());
+			}
+			sc1.close();
+			
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		Demo d = new Demo();
+		d.saveInventory();
+		d.displayInventory();
+		
+
+	}
+
+}

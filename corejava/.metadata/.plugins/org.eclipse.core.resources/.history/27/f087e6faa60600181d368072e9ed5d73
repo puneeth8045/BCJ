@@ -1,0 +1,32 @@
+package com.crmindz.assignments.Operators;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class NewThread {
+	
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		for(int i =0 ; i<10;i++) {
+			double d = s.nextDouble();
+			double[] a = {d};
+		}
+		
+		Arrays.sort(a);
+		double min = a[0];
+		System.out.println(min);
+		}
+    }
+		
+		
+		
+	
+	
+
+
+
+
+
+	
+	

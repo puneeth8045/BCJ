@@ -1,0 +1,41 @@
+package com.crmindz.bcjMay2017.Service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.crmindz.bcjMay2017.DAO.Dao;
+import com.crmindz.bcjMay2017.Model.Registration;
+
+@Service
+public class RegistrationService {
+	
+	@Autowired
+	Dao RegistrationDao;
+	
+	public  void register(Registration register) {
+		System.out.println(RegistrationDao);
+		RegistrationDao.register(register);
+		
+	}
+	public String getStates() {
+		List<Map<String,String>> states = RegistrationDao.getStates();
+		String statesDropDown = "";
+		for(Map<String,String> state:states) {
+			statesDropDown +="<option value='"+ state.get("code") +"'>"+ state.get("name") +"</option>";
+		}
+		return statesDropDown;
+		
+	}
+	public String getType() {
+		List<Map<String,String>> type = RegistrationDao.getUsertype();
+		String usertype= "";
+		for(Map<String,String> user:type) {
+			usertype +="<option value='"+user.get("value")+"'>"+user.get("type")+"</option>";
+		}
+		return usertype;
+	}
+
+
+}

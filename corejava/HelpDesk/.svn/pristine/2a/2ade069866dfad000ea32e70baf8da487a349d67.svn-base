@@ -1,0 +1,74 @@
+package com.crmindz.bcjMay2017.Controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.crmindz.bcjMay2017.Model.TicketCreation;
+import com.crmindz.bcjMay2017.Service.EmployeeService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+@Controller
+public class EmployeeController {
+	
+	@Autowired
+	EmployeeService empservice;
+	
+	
+	@RequestMapping("/EmpControl")
+    public String Gridview(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws IOException {
+		List<TicketCreation> lc = empservice.gridView();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		 String jsonArray = gson.toJson(lc);
+		 String forward = "empform";
+    	 request.setAttribute("empform",jsonArray );
+		return forward;
+		
+	}
+	
+	@RequestMapping("/EmpApprove")
+    public String ApprovalGridview(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws IOException {
+		/*String username=(String)session.getAttribute("username");*/
+		List<TicketCreation> lc = empservice.ApprovalgridView();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		 String jsonArray = gson.toJson(lc);
+		 String forward = "empApproveform";
+    	 request.setAttribute("empApproveform",jsonArray );
+		return forward;
+		
+	}
+	
+	@RequestMapping("/EmpReject")
+    public String RejectGridview(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws IOException {
+		/*String username=(String)session.getAttribute("username");*/
+		List<TicketCreation> lc = empservice.RejectgridView();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		 String jsonArray = gson.toJson(lc);
+		 String forward = "empRejectform";
+    	 request.setAttribute("empRejectform",jsonArray );
+		return forward;
+		
+	}
+	@RequestMapping("/EmpUpdate")
+	public void updateGridview(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		String ticketref= request.getParameter("val");
+		String comments = request.getParameter("comments");
+		empservice.updateAcceptGrid(ticketref,comments);
+		
+	}
+	@RequestMapping("/EmpgridReject")
+	public void rejectGridview(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		String ticketref= request.getParameter("val");
+		String comments = request.getParameter("comments");
+		empservice.updateRejectGrid(ticketref,comments);
+		
+	}
+}

@@ -1,0 +1,37 @@
+package com.crmindz.assignments.Operators;
+
+import java.util.Scanner;
+
+public class NewThread {
+	
+	
+	  public static int FirstFactorial(int num) { 
+	  
+	    int a = 1;
+	    for(int i = 1;i<= num; i++){
+	        a = a*i;
+	    }
+	       
+	    return a;
+	    
+	  } 
+	  
+	  public static void main (String[] args) {  
+	    // keep this function call here     
+	    Scanner s = new Scanner(System.in);
+	    System.out.print(FirstFactorial(s.nextInt())); 
+	  }   
+	  
+	}
+		
+		
+		
+	
+	
+
+
+
+
+
+	
+	

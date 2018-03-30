@@ -1,0 +1,50 @@
+package com.crmindz.assignments.Operators;
+
+import java.util.Scanner;
+
+public class NewThread {
+	
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		int a = s.nextInt();
+		int b = 0;
+		
+		if(a>=100&&a<=700) {
+			int temp = a;
+			if(temp%2 == 0) {
+				temp = temp/2;
+				sb.append("*2");
+			}
+			else if(temp%3 == 0) {
+				temp = temp/3;
+				sb.append("*3");
+			}
+			else if(temp%5 == 0) {
+				temp = temp/5;
+				sb.append("*5");
+			}
+			else if(temp%7 == 0) {
+				temp = temp/7;
+				sb.append("*7");
+			}
+			else {
+				System.out.println(temp+""+sb);
+			}
+		}
+		
+		}
+    }
+		
+		
+		
+	
+	
+
+
+
+
+
+	
+	

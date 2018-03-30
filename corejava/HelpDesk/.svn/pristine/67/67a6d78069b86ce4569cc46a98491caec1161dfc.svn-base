@@ -1,0 +1,93 @@
+package com.crmindz.HelpDesk;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.crmindz.HelpDesk.DAO.Dao;
+import com.crmindz.HelpDesk.Model.TicketCreation;
+import com.crmindz.HelpDesk.Service.EmployeeService;
+
+/**
+ * @author Puneeth 
+ * This class tests the methods in the EmployeeService class.
+ */
+@RunWith(MockitoJUnitRunner.class)
+public class EmployeeServiceTest {
+
+	@Mock
+	Dao empdao;
+
+	@InjectMocks
+	private EmployeeService Service;
+
+	/**
+	 * This method tests the gridView method in the EmployeeService Class.
+	 */
+	@Test
+	public void gridViewTest() {
+		List<TicketCreation> lc = new ArrayList<TicketCreation>();
+		TicketCreation tc = new TicketCreation();
+		tc.setTicketId(1234);
+		lc.add(tc);
+		when(empdao.getEmpGrid()).thenReturn(lc);
+		assertEquals(lc, Service.gridView());
+	}
+
+	/**
+	 * This method tests the ApprovalgridView method in the EmployeeService Class.
+	 */
+	@Test
+	public void ApprovalgridViewTest() {
+		List<TicketCreation> lc = new ArrayList<TicketCreation>();
+		TicketCreation tc = new TicketCreation();
+		tc.setTicketId(1234);
+		lc.add(tc);
+		when(empdao.getApprovalEmpGrid()).thenReturn(lc);
+		assertEquals(lc, Service.ApprovalgridView());
+	}
+
+	/**
+	 * This method tests the RejectgridView method in the EmployeeService Class.
+	 */
+	@Test
+	public void RejectgridViewTest() {
+		List<TicketCreation> lc = new ArrayList<TicketCreation>();
+		TicketCreation tc = new TicketCreation();
+		tc.setTicketId(1234);
+		lc.add(tc);
+		when(empdao.getRejectEmpGrid()).thenReturn(lc);
+		assertEquals(lc, Service.RejectgridView());
+	}
+
+	/**
+	 * This method tests the updateAcceptGrid method in the EmployeeService Class.
+	 */
+	@Test
+	public void updateAcceptGridTest() {
+		Mockito.doNothing().when(empdao).updateGrid(Mockito.anyString(), Mockito.anyString());
+		Service.updateAcceptGrid(Mockito.anyString(), Mockito.anyString());
+		Mockito.verify(empdao, times(1)).updateGrid(Mockito.anyString(), Mockito.anyString());
+	}
+
+	/**
+	 * This method tests the updateRejectGrid method in the EmployeeService Class.
+	 */
+	@Test
+	public void updateRejectGridTest() {
+		Mockito.doNothing().when(empdao).updateRejectGrid(Mockito.anyString(), Mockito.anyString());
+		Service.updateRejectGrid(Mockito.anyString(), Mockito.anyString());
+		Mockito.verify(empdao, times(1)).updateRejectGrid(Mockito.anyString(), Mockito.anyString());
+	}
+
+}

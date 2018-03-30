@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CoreJava_PA/src/com/crmindz/assignments/Oops/interfaces/lab2/CharSequence.java&apos; to &apos;CharImplementation.java&apos;" description="Rename resource &apos;CharSequence.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/crmindz/assignments/Oops/interfaces/lab2/CharSequence.java" name="CharImplementation.java" stamp="1500761054501" updateReferences="true"/>
+</session>

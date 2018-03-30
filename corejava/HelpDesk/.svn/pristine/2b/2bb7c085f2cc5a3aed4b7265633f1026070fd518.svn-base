@@ -1,0 +1,43 @@
+package com.crmindz.bcjMay2017.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.crmindz.bcjMay2017.DAO.Dao;
+import com.crmindz.bcjMay2017.Model.LoginCredentails;
+import com.crmindz.bcjMay2017.Model.TicketCreation;
+
+@Service
+public class LoginService {
+	String Student;
+	String Employee;
+	@Autowired
+	Dao LoginDao;
+
+	public String validateUser(LoginCredentails login) {
+
+		List<LoginCredentails> lc = LoginDao.getLoginDetails(login);
+		if (lc.isEmpty()) {
+			return "Username is incorrect!!!!";
+		}
+
+		else if (login.getPassword().equals(lc.get(0).getPassword())) {
+			return lc.get(0).getUsertype();
+		}
+
+		else {
+			return "Password is incorrect!!!";
+		}
+
+	}
+
+	public List<TicketCreation> gridView(String username) {
+		List<TicketCreation> lc = LoginDao.getGrid(username);
+
+		return lc;
+
+	}
+
+}

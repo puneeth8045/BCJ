@@ -1,0 +1,119 @@
+package com.crmindz.HelpDesk.Controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.crmindz.HelpDesk.Model.TicketCreation;
+import com.crmindz.HelpDesk.Service.EmployeeService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+/**
+ * @author Puneeth 
+ * The EmployeeController class implements methods with appropriate
+ * request mappings and returns the respective view to the employee after
+ * the login process
+ */
+@Controller
+public class EmployeeController {
+
+	
+	@Autowired
+	EmployeeService empservice;
+
+	/**
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @return String
+	 * @throws IOException
+	 * The GridView Method returns the empform view for the RequestMapping("/EmpControl").
+	 */
+	@RequestMapping("/EmpControl")
+	public String Gridview(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		List<TicketCreation> lc = empservice.gridView();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String jsonArray = gson.toJson(lc);
+		String forward = "empform";
+		request.setAttribute("empform", jsonArray);
+		return forward;
+
+	}
+    
+	/**
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @return String
+	 * @throws IOException
+	 * The ApprovalGridView Method returns the empApproveform view for the RequestMapping("/EmpApprove").
+	 */
+	@RequestMapping("/EmpApprove")
+	public String ApprovalGridview(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		List<TicketCreation> lc = empservice.ApprovalgridView();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String jsonArray = gson.toJson(lc);
+		String forward = "empApproveform";
+		request.setAttribute("empApproveform", jsonArray);
+		return forward;
+
+	}
+
+	/**
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @return String
+	 * @throws IOException
+	 * The RejectGridView Method returns the empRejectform view for the RequestMapping("/EmpReject").
+	 */
+	@RequestMapping("/EmpReject")
+	public String RejectGridview(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		List<TicketCreation> lc = empservice.RejectgridView();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String jsonArray = gson.toJson(lc);
+		String forward = "empRejectform";
+		request.setAttribute("empRejectform", jsonArray);
+		return forward;
+
+	}
+
+	/**
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * The updateGridview passes the updated comments to the service class when the employee approves the ticket.
+	 */
+	@RequestMapping("/EmpUpdate")
+	public void updateGridview(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String ticketref = request.getParameter("val");
+		String comments = request.getParameter("comments");
+		empservice.updateAcceptGrid(ticketref, comments);
+
+	}
+
+	/**
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * The rejectGridview passes the updated comments to the service class when the employee rejects the ticket.
+	 */
+	@RequestMapping("/EmpgridReject")
+	public void rejectGridview(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String ticketref = request.getParameter("val");
+		String comments = request.getParameter("comments");
+		empservice.updateRejectGrid(ticketref, comments);
+
+	}
+}

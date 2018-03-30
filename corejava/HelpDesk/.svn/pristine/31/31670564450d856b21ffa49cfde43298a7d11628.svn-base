@@ -1,0 +1,39 @@
+package com.crmindz.bcjMay2017.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.crmindz.bcjMay2017.DAO.Dao;
+import com.crmindz.bcjMay2017.Model.TicketCreation;
+
+@Service
+public class EmployeeService {
+
+	@Autowired
+	Dao empdao;
+
+	public List<TicketCreation> gridView() {
+		List<TicketCreation> lc = empdao.getEmpGrid();
+		return lc;
+	}
+
+	public List<TicketCreation> ApprovalgridView() {
+		List<TicketCreation> lc = empdao.getApprovalEmpGrid();
+		return lc;
+	}
+
+	public List<TicketCreation> RejectgridView() {
+		List<TicketCreation> lc = empdao.getRejectEmpGrid();
+		return lc;
+	}
+
+	public void updateAcceptGrid(String ticketref, String comments) {
+		empdao.updateGrid(ticketref, comments);
+	}
+
+	public void updateRejectGrid(String ticketref, String comments) {
+		empdao.updateRejectGrid(ticketref, comments);
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;CoreJava_PA/src/com/crmindz/assignments/Operators/multithreaded_programing.java&apos;" deleteContents="false" description="Delete resource &apos;CoreJava_PA/src/com/crmindz/assignments/Operators/multithreaded_programing.java&apos;" element1="/CoreJava_PA/src/com/crmindz/assignments/Operators/multithreaded_programing.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1506238837977"/>
+</session>

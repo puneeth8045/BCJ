@@ -1,0 +1,28 @@
+
+public class ExamBoolean {
+	
+	public static boolean hasPassed(int marks){
+		
+		if(marks>=65 && marks<=100){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+	
+	public static void main(String[]args){
+		int marks=7;
+		
+		if(true){
+			System.out.println("Passed Successfully!");
+		}else{
+			System.out.println("Failed! The range of qualifying exams marks is between 65 and 100");
+		}
+		
+		
+		
+		
+	}
+
+}

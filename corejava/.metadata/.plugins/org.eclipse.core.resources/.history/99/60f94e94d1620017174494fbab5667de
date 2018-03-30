@@ -1,0 +1,19 @@
+package com.crmindz.assignments.FlowControl.lab5;
+
+import java.util.Scanner;
+
+public class SalespersonEarninigs {
+	public void earningCalculation(){
+		Scanner sc = new Scanner(System.in);
+		double item1=sc.nextDouble()*239.99;
+		double item2=sc.nextDouble()+129.75;
+		
+		double item3=sc.nextDouble()+99.95;
+		double item4=sc.nextDouble()+350.89;
+	}
+    public static void main(String[]args){
+    	SalespersonEarninigs spe = new SalespersonEarninigs();
+    	spe.earningCalculation();
+    	
+    }
+}

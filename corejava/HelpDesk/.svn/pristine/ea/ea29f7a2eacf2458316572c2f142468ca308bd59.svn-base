@@ -1,0 +1,62 @@
+package com.crmindz.HelpDesk.Controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.crmindz.HelpDesk.Model.LoginCredentails;
+import com.crmindz.HelpDesk.Model.Registration;
+import com.crmindz.HelpDesk.Service.RegistrationService;;
+
+
+/**
+ * @author Puneeth
+ * 
+ *This Class Implements methods to register users and confirm their registration.
+ */
+@Controller
+public class RegistrationController {
+	@Autowired
+	public RegistrationService RegistrationService;
+
+	/**
+	 * @param request
+	 * @param response
+	 * @return A Message and view.
+	 * This method renders the registration view.
+	 */
+	@RequestMapping(value = "/Registration", method = RequestMethod.GET)
+	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
+		String stateData = RegistrationService.getStates();
+		String usertype = RegistrationService.getType();
+		ModelAndView model = new ModelAndView("Registration");
+		model.addObject("stateData", stateData);
+		model.addObject("usertype", usertype);
+		model.addObject("register", new Registration());
+		return model;
+
+	}
+
+	/**
+	 * @param request
+	 * @param response
+	 * @param register
+	 * @return ModelAndView
+	 * This method forward's user Types to populate while registering.
+	 */
+	@RequestMapping("/RegistrationProcess")
+	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("register") Registration register) {
+		System.out.println(register.getFirstName());
+		System.out.println(RegistrationService);
+		RegistrationService.register(register);
+		return new ModelAndView("Login", "LoginCredentails", new LoginCredentails());
+
+	}
+
+}

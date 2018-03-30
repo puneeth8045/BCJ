@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.crmindz.Hibernate.model.Registration" table="Registration">
+		<id name="id" type="int">
+			<column name="Id" />
+			<generator class="identity" />
+		</id>
+		<property name="firstName" type="string">
+			<column name="firstName" />
+		</property>
+		<property name="lastName" type="string">
+			<column name="lastName" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" />
+		</property>
+		<property name="phnNo" type="string">
+			<column name="phnNo" />
+		</property>
+		<one-to-one name="Address" class="com.crmindz.Hibernate.model.Address"
+			cascade="save-update" />
+	</class>
+</hibernate-mapping>

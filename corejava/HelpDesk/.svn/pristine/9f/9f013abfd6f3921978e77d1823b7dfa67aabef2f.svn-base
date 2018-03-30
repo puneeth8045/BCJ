@@ -1,0 +1,41 @@
+package com.crmindz.bcjMay2017.Service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.crmindz.bcjMay2017.DAO.Dao;
+import com.crmindz.bcjMay2017.Model.TicketCreation;
+
+
+@Service
+public class TicketCreationService {
+
+	
+	@Autowired
+	Dao TicketCreationDao;
+	public void createTicket(TicketCreation Ticket,String username) {
+		Ticket.setStatus("Pending");
+		int ticket =(int)(Math.random()*10000);
+		Ticket.setTicketreferenceno(ticket);
+		Ticket.setComments("We are working on it!!");
+		System.out.println(ticket);
+		TicketCreationDao.createTicket(Ticket,username);
+		
+	}
+	public String  getCategory() {
+		List<Map<String,String>> list = TicketCreationDao.getCategory();
+		String category="";
+		for(Map user:list) {
+			category +="<option value='"+user.get("category")+"'>"+user.get("category")+"</option>";
+		}
+		return category;
+	}
+	public List<Map<String,String>> getSubCategory(String subcategory){
+		List<Map<String,String>> list1 = TicketCreationDao.getSubCategory(subcategory);
+		return list1;
+	}
+	
+}

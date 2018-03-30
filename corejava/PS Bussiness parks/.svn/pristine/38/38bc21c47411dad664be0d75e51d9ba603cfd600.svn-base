@@ -1,0 +1,22 @@
+package com.crmindz.bcjMay2017.PSBinfo.data;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.crmindz.bcjMay2017.PSBinfo.model.TenantDetails;
+
+public class TenantMockData {
+	public Map<String, TenantDetails> map = new HashMap<String, TenantDetails>();
+
+	public void createTenantInfo(TenantDetails td) {
+		map.put(td.getTenantName(), td);
+
+	}
+
+	public Map<String, TenantDetails> getTenantDetails() {
+
+		return map;
+
+	}
+
+}

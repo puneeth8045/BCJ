@@ -1,0 +1,24 @@
+package com.crmindz.helpdesk.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+@Configuration
+@EnableWebMvc
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+	/**
+	 * Spring by default has a feature of identifying Path Extensions, Ex: if you
+	 * send email(abc@gmail.com) on path to consume service.Spring ignores things
+	 * after last dot(.) by treating that as extension. it takes only (abc@gmail).to
+	 * avoid these problem,you have to disable favorPathExtension and in resource
+	 * RequestMapping use regex like this {email:.+}
+	 * 
+	 */
+	@Override
+	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+		configurer.favorPathExtension(false).favorPathExtension(false);
+	}
+}
